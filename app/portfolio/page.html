@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarath Sriram A | Data Science Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-light: #14b8a6;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --light: #f1f5f9;
+      --white: #ffffff;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+      color: var(--white);
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--white);
+      border: 4px solid var(--primary-light);
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+    
+    .tagline {
+      color: var(--primary-light);
+      font-size: 1.25rem;
+      margin-bottom: 24px;
+    }
+    
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    
+    .contact-info a {
+      color: #cbd5e1;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s;
+    }
+    
+    .contact-info a:hover {
+      color: var(--primary-light);
+    }
+    
+    /* Sections */
+    section {
+      padding: 64px 0;
+    }
+    
+    .section-title {
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-bottom: 32px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    /* About */
+    .about-content {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    
+    .about-content p {
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+    
+    /* Education Cards */
+    .education-grid {
+      display: grid;
+      gap: 24px;
+    }
+    
+    .edu-card {
+      background: var(--white);
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--primary);
+    }
+    
+    .edu-card h3 {
+      color: var(--dark);
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+    
+    .edu-card .institution {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .edu-card .period {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    
+    .edu-card .grade {
+      background: var(--light);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--primary);
+    }
+    
+    /* Skills */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    
+    .skill-category {
+      background: var(--white);
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    
+    .skill-category h3 {
+      color: var(--dark);
+      font-size: 1.125rem;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .skill-tag {
+      background: var(--light);
+      color: var(--dark);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .skill-tag:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+    
+    /* Projects */
+    .project-card {
+      background: var(--white);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    
+    .project-card h3 {
+      color: var(--dark);
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .project-card .objective {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .tech-badge {
+      background: var(--primary);
+      color: var(--white);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .outcome {
+      background: #ecfdf5;
+      border-left: 4px solid var(--primary);
+      padding: 16px;
+      border-radius: 0 8px 8px 0;
+      color: var(--dark);
+    }
+    
+    /* Certifications */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    
+    .cert-card {
+      background: var(--white);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    
+    .cert-card:hover {
+      transform: translateY(-4px);
+    }
+    
+    .cert-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 24px;
+    }
+    
+    .cert-card h4 {
+      color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    
+    .cert-card .platform {
+      color: var(--gray);
+      font-size: 0.875rem;
+    }
+    
+    .cert-card.in-progress {
+      border: 2px dashed var(--primary);
+    }
+    
+    /* Interests */
+    .interests-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .interest-item {
+      background: var(--white);
+      padding: 16px 24px;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #cbd5e1;
+      text-align: center;
+      padding: 40px 0;
+    }
+    
+    footer p {
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 60px 0;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+      }
+      
+      section {
+        padding: 48px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="avatar">SS</div>
+      <h1>Sarath Sriram A</h1>
+      <p class="tagline">Aspiring Data Scientist | MSc Data Science Student</p>
+      <div class="contact-info">
+        <a href="mailto:sarathanbu2020@gmail.com">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          sarathanbu2020@gmail.com
+        </a>
+        <a href="tel:+919345823506">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +91 9345823506
+        </a>
+        <a href="#">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Dharmapuri, Tamil Nadu
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>I'm a passionate Data Science student at Amrita Vishwa Vidyapeetham, pursuing my Integrated MSc in Data Science. My goal is to develop proficiency in programming languages like Python and R, along with mastering tools such as SQL, Excel, and data visualization platforms like Tableau and Power BI. I'm dedicated to mastering data analysis and statistical techniques to extract meaningful insights from complex datasets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" style="background: var(--white);">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="education-grid">
+        <div class="edu-card">
+          <h3>Integrated MSc Data Science</h3>
+          <p class="institution">Amrita Vishwa Vidyapeetham, Coimbatore</p>
+          <p class="period">2022 - 2027</p>
+          <span class="grade">CGPA: 7.75/10</span>
+        </div>
+        <div class="edu-card">
+          <h3>Higher Secondary Education</h3>
+          <p class="institution">Senthil Public School, Dharmapuri</p>
+          <p class="period">2020 - 2022 | CBSE</p>
+          <span class="grade">82%</span>
+        </div>
+        <div class="edu-card">
+          <h3>Secondary Education</h3>
+          <p class="institution">Senthil Public School, Dharmapuri</p>
+          <p class="period">2018 - 2020 | CBSE</p>
+          <span class="grade">88%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>🐍 Python</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">Seaborn</span>
+            <span class="skill-tag">NLP</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>🗄️ Database</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Database Management</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>📊 Analytics</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">R Programming</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Data Visualization</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>🤖 Machine Learning</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Text Classification</span>
+            <span class="skill-tag">Naive Bayes</span>
+            <span class="skill-tag">NLP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" style="background: var(--white);">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-card">
+        <h3>📧 Spam Email Detection</h3>
+        <p class="objective">Classify emails as spam or not spam using basic text classification techniques to improve email filtering and user experience.</p>
+        <div class="tech-stack">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">NLP</span>
+          <span class="tech-badge">Naive Bayes</span>
+          <span class="tech-badge">Text Preprocessing</span>
+        </div>
+        <div class="outcome">
+          <strong>Outcome:</strong> Successfully built a classifier that accurately detects whether an email is spam or not spam, demonstrating practical application of machine learning in email security.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title">Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon">🗄️</div>
+          <h4>SQL (Database)</h4>
+          <p class="platform">Certified</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">📈</div>
+          <h4>R Programming</h4>
+          <p class="platform">Coursera</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🐍</div>
+          <h4>Python</h4>
+          <p class="platform">HackerRank</p>
+        </div>
+        <div class="cert-card in-progress">
+          <div class="cert-icon">📊</div>
+          <h4>Power BI</h4>
+          <p class="platform">Coursera (In Progress)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interests Section -->
+  <section id="interests" style="background: var(--white);">
+    <div class="container">
+      <h2 class="section-title">Interests & Activities</h2>
+      <div class="interests-grid">
+        <div class="interest-item">⚽ Football</div>
+        <div class="interest-item">🏏 Cricket</div>
+        <div class="interest-item">🤼 Kabaddi (Zonal & District Level)</div>
+        <div class="interest-item">🎬 Movies</div>
+        <div class="interest-item">🗣️ English</div>
+        <div class="interest-item">🗣️ Tamil</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Sarath Sriram A. All rights reserved.</p>
+      <p style="margin-top: 8px;">Open to opportunities in Data Science & Analytics</p>
+    </div>
+  </footer>
+
+</body>
+</html>
